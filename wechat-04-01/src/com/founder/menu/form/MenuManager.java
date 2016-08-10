@@ -30,11 +30,10 @@ public class MenuManager {
 		btn11.setType("click");
 		btn11.setKey("founder");
 		
-		//构造二级view菜单
-		ViewButton btn12 = new ViewButton();
+		ClickButton btn12 = new ClickButton();
 		btn12.setName("方正国际");
-		btn12.setType("view");
-		btn12.setUrl("http://m.founder.rubcn.com/");
+		btn12.setType("click");
+		btn12.setKey("founderNational");
 		
 		ViewButton btn21 = new ViewButton();
 		btn21.setName("淘宝");
@@ -61,7 +60,7 @@ public class MenuManager {
 		ComplexButton btn1 = new ComplexButton();
 		btn1.setName("方正集团");
 		btn1.setSub_button(new Button[]{btn11,btn12});
-		
+	
 		ComplexButton btn2 = new ComplexButton();
 		btn2.setName("方正购物");
 		btn2.setSub_button(new Button[]{btn21,btn22});
@@ -71,12 +70,12 @@ public class MenuManager {
 		btn3.setSub_button(new Button[]{btn31,btn32});
 		
 		Menu menu = new Menu();
-		menu.setButton(new Button[]{btn1,btn2});
+		menu.setButton(new Button[]{btn1,btn2,btn3});
 		
 		return menu;
 	}
 	/**
-	 * s生成菜单
+	 * 生成菜单
 	 * @param args
 	 */
 	public static void main(String[] args){
@@ -97,7 +96,6 @@ public class MenuManager {
 			}else{
 				log.info("菜单创建失败！");
 			}
-			
 		}
 	}
 }

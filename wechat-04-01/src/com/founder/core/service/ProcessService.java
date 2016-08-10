@@ -37,6 +37,8 @@ public class ProcessService {
 			String toUserName = requestMap.get("ToUserName");
 			// 消息类型
 			String msgType = requestMap.get("MsgType");
+			
+			System.out.println("消息类型："+msgType);
 
 			TextMessage textMessage = new TextMessage();
 			textMessage.setToUserName(fromUserName);
@@ -47,9 +49,11 @@ public class ProcessService {
 			if (msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)) {
 				// 事件类型
 				String eventType = requestMap.get("Event");
+				
+				System.out.println("事件类型："+eventType);
 				// 订阅
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-					textMessage.setContent("您好，欢迎关注网址导航！我们致力于打造精品网址聚合应用，为用户提供便捷的上网导航服务。体验生活，从这里开始！");
+					textMessage.setContent("您好，欢迎关注方正国际服务。体验生活，享受乐趣 从这里开始！");
 					// 将消息对象转换成xml
 					respXml = MessageUtil.messageToXml(textMessage);
 				}
@@ -61,13 +65,15 @@ public class ProcessService {
 				else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {
 					// 事件KEY值，与创建菜单时的key值对应
 					String eventKey = requestMap.get("EventKey");
+					
+					System.out.println("EventKey:"+eventKey);
 					// 根据key值判断用户点击的按钮
 					if (eventKey.equals("founder")) {
 						Article article = new Article();
 						article.setTitle("方正");
-						article.setDescription("开源中国社区成立于2008年8月，是目前中国最大的开源技术社区。\n\n开源中国的目的是为中国的IT技术人员提供一个全面的、快捷更新的用来检索开源软件以及交流开源经验的平台。\n\n经过不断的改进,目前开源中国社区已经形成了由开源软件库、代码分享、资讯、讨论区和博客等几大频道内容。");
+						article.setDescription("方正集团由北京大学于1986年投资创办。\n\n 王选院士为方正集团技术决策者、奠基人，其发明的汉字激光照排技术奠定了方正集团起家之业。\n\n 方正集团拥有并创造了对中国IT，医疗医药产业发展至关重要的核心技术，吸引多家国际资本注入，目前已成为中国信息产业前三强的大型控股集团，\n\n 业务领域涵盖IT、医疗医药、房地产、金融、大宗商品贸易等产业");
 						article.setPicUrl("");
-						article.setUrl("http://m.oschina.net");
+						article.setUrl("http://www.founder.com/");
 						List<Article> articleList = new ArrayList<Article>();
 						articleList.add(article);
 						// 创建图文消息
@@ -79,9 +85,23 @@ public class ProcessService {
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
 						respXml = MessageUtil.messageToXml(newsMessage);
-					} else if (eventKey.equals("iteye")) {
-						textMessage.setContent("ITeye即创办于2003年9月的JavaEye,从最初的以讨论Java技术为主的技术论坛，已经逐渐发展成为涵盖整个软件开发领域的综合性网站。\n\nhttp://www.iteye.com");
-						respXml = MessageUtil.messageToXml(textMessage);
+					} else if (eventKey.equals("founderNational")) {
+						Article article = new Article();
+						article.setTitle("方正国际");
+						article.setDescription("方正国际软件有限公司，依托北京大学和方正集团，致力于成为一流的软件和信息技术服务商。\n\n 公司现有员工4000余人，拥有4个研发基地，2个合作研究中心，在北京、苏州、武汉、广州、东京等地建有前方交付平台和研发基地。\n\n 立足于“产学研用”的发展模式，方正国际始终坚持走自主创新之路，业务重点聚焦于金融、公安和地理信息、医疗卫生、智能交通、媒体等五大行业，全面服务城市信息化建设。\n\n 作为国家认定的高新技术企业，方正国际客户遍及中、日、东南亚、北美、欧洲、中东等多个国家和地区，已快速成长为有影响力的一站式解决方案提供商 http://www.founderinternational.com/");
+						article.setPicUrl("");
+						article.setUrl("http://www.founderinternational.com/");
+						List<Article> articleList = new ArrayList<Article>();
+						articleList.add(article);
+						// 创建图文消息
+						NewsMessage newsMessage = new NewsMessage();
+						newsMessage.setToUserName(fromUserName);
+						newsMessage.setFromUserName(toUserName);
+						newsMessage.setCreateTime(new Date().getTime());
+						newsMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+						newsMessage.setArticleCount(articleList.size());
+						newsMessage.setArticles(articleList);
+						respXml = MessageUtil.messageToXml(newsMessage);
 					}
 				}
 			}
