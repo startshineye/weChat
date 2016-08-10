@@ -34,7 +34,7 @@ public class MenuManager {
 		ViewButton btn12 = new ViewButton();
 		btn12.setName("方正国际");
 		btn12.setType("view");
-		btn12.setUrl("http://m.founder.rubcn.com/");
+		btn12.setUrl("http://www.founderinternational.com/");
 		
 		ViewButton btn21 = new ViewButton();
 		btn21.setName("淘宝");
