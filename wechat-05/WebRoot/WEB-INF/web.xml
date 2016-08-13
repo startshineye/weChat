@@ -7,7 +7,7 @@
 	
   <servlet>
     <servlet-name>CoreServlet</servlet-name>
-    <servlet-class>com.founder.core.servlet.CoreServlet</servlet-class>
+    <servlet-class>com.founder.weixin.core.servlet.CoreServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CoreServlet</servlet-name>
@@ -19,7 +19,7 @@
   
   <servlet>
      <servlet-name>OAuthServlet</servlet-name>
-     <servlet-class>com.founder.core.servlet.OAuthServlet</servlet-class>
+     <servlet-class>com.founder.weixin.core.servlet.OAuthServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
