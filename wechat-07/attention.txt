@@ -1,0 +1,4 @@
+
+
+//1.网页授权链接：
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx73d9bb98d3a0175f&redirect_uri=http%3A%2F%2F99bc8d18.ngrok.io%2Fwxkf%2FoauthServlet&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
