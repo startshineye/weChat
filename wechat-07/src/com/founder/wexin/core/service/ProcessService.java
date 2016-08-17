@@ -38,7 +38,7 @@ public class ProcessService {
 			// 消息类型
 			String msgType = requestMap.get("MsgType");
 			
-			System.out.println("消息类型："+msgType);
+			System.out.println("："+msgType);
 
 			TextMessage textMessage = new TextMessage();
 			textMessage.setToUserName(fromUserName);
@@ -50,7 +50,7 @@ public class ProcessService {
 				// 事件类型
 				String eventType = requestMap.get("Event");
 				
-				System.out.println("事件类型："+eventType);
+				System.out.println("："+eventType);
 				// 订阅
 				if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
 					textMessage.setContent("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx73d9bb98d3a0175f&redirect_uri=http%3A%2F%2Ff8f6d81e.ngrok.io%2Fwxkf%2FcoreServlet&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
@@ -71,7 +71,7 @@ public class ProcessService {
 					if (eventKey.equals("founder")) {
 						Article article = new Article();
 						article.setTitle("方正");
-						article.setDescription("方正集团由北京大学于1986年投资创办。\n\n 王选院士为方正集团技术决策者、奠基人，其发明的汉字激光照排技术奠定了方正集团起家之业。\n\n 方正集团拥有并创造了对中国IT，医疗医药产业发展至关重要的核心技术，吸引多家国际资本注入，目前已成为中国信息产业前三强的大型控股集团，\n\n 业务领域涵盖IT、医疗医药、房地产、金融、大宗商品贸易等产业");
+						article.setDescription("方正集团由北京大学于1986年投资创办。\n\n 王选院士为方正集团技术决策者、奠基人，其发明的汉字激光照排技术奠定了方正集团起家之业。\n\n 方正集团拥有并创造了对中国IT，医疗医发展至关重要的核心技术，吸引多家国际资本注入，目前已成为中国信息产业前三强的大型控股集团，\n\n 业务领域涵盖IT、医疗医药、房地产、金融、大宗商品贸易等产业");
 						article.setPicUrl("");
 						article.setUrl("http://www.founder.com/");
 						List<Article> articleList = new ArrayList<Article>();
